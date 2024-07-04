@@ -13,6 +13,19 @@ val tauriProperties = Properties().apply {
     }
 }
 
+buildscript {
+  repositories {
+    gradlePluginPortal()
+    // mavenCentral() include if you need plugins from other repositories
+    // google() include if you need plugins from other repositories
+  }
+
+  dependencies {
+    classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.0")
+    // other plugin dependencies...
+  }
+}
+
 android {
     compileSdk = 34
     namespace = "fcm.tauri.poc"
