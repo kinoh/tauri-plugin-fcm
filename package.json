@@ -1,0 +1,24 @@
+{
+  "name": "poc-fcm-tauri",
+  "private": true,
+  "version": "0.0.0",
+  "packageManager": "pnpm@9.4.0",
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build src",
+    "tauri": "tauri",
+    "dev": "nuxt dev src",
+    "generate": "nuxt generate src",
+    "postinstall": "nuxt prepare src"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "2.0.0-beta.14",
+    "@tauri-apps/cli": "2.0.0-beta.21",
+    "nuxt": "^3.12.3",
+    "vue": "latest"
+  },
+  "devDependencies": {
+    "pnpm": "^9.4.0",
+    "tauri-plugin-fcm-api": "link:src-tauri/tauri-plugin-fcm"
+  }
+}
