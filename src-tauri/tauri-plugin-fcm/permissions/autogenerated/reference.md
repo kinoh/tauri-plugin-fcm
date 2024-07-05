@@ -2,7 +2,8 @@
 
 Default permissions for the plugin
 
-- `allow-ping`
+- `allow-get-token`
+- `allow-subscribe-to-topic`
 
 ### Permission Table 
 
@@ -16,12 +17,12 @@ Default permissions for the plugin
 <tr>
 <td>
 
-`fcm:allow-ping`
+`fcm:allow-get-token`
 
 </td>
 <td>
 
-Enables the ping command without any pre-configured scope.
+Enables the get_token command without any pre-configured scope.
 
 </td>
 </tr>
@@ -29,12 +30,38 @@ Enables the ping command without any pre-configured scope.
 <tr>
 <td>
 
-`fcm:deny-ping`
+`fcm:deny-get-token`
 
 </td>
 <td>
 
-Denies the ping command without any pre-configured scope.
+Denies the get_token command without any pre-configured scope.
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+`fcm:allow-subscribe-to-topic`
+
+</td>
+<td>
+
+Enables the subscribe_to_topic command without any pre-configured scope.
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+`fcm:deny-subscribe-to-topic`
+
+</td>
+<td>
+
+Denies the subscribe_to_topic command without any pre-configured scope.
 
 </td>
 </tr>

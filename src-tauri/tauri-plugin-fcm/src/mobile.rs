@@ -28,10 +28,17 @@ pub fn init<R: Runtime, C: DeserializeOwned>(
 pub struct Fcm<R: Runtime>(PluginHandle<R>);
 
 impl<R: Runtime> Fcm<R> {
-  pub fn ping(&self, payload: PingRequest) -> crate::Result<PingResponse> {
+  pub fn get_token(&self, payload: GetTokenRequest) -> crate::Result<GetTokenResponse> {
     self
       .0
-      .run_mobile_plugin("ping", payload)
+      .run_mobile_plugin("getToken", payload)
+      .map_err(Into::into)
+  }
+
+  pub fn subscribe_to_topic(&self, payload: SubscribeToTopicRequest) -> crate::Result<SubscribeToTopicResponse> {
+    self
+      .0
+      .run_mobile_plugin("subscribeToTopic", payload)
       .map_err(Into::into)
   }
 }

@@ -35,7 +35,10 @@ impl<R: Runtime, T: Manager<R>> crate::FcmExt<R> for T {
 /// Initializes the plugin.
 pub fn init<R: Runtime>() -> TauriPlugin<R> {
   Builder::new("fcm")
-    .invoke_handler(tauri::generate_handler![commands::ping])
+    .invoke_handler(tauri::generate_handler![
+      commands::get_token,
+      commands::subscribe_to_topic
+      ])
     .setup(|app, api| {
       #[cfg(mobile)]
       let fcm = mobile::init(app, api)?;

@@ -14,6 +14,7 @@
   "dependencies": {
     "@tauri-apps/api": "2.0.0-beta.14",
     "@tauri-apps/cli": "2.0.0-beta.21",
+    "@tauri-apps/plugin-notification": "github:tauri-apps/tauri-plugin-notification#v2",
     "nuxt": "^3.12.3",
     "vue": "latest"
   },

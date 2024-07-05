@@ -14,9 +14,11 @@ pub fn init<R: Runtime, C: DeserializeOwned>(
 pub struct Fcm<R: Runtime>(AppHandle<R>);
 
 impl<R: Runtime> Fcm<R> {
-  pub fn ping(&self, payload: PingRequest) -> crate::Result<PingResponse> {
-    Ok(PingResponse {
-      value: payload.value,
-    })
+  pub fn get_token(&self, _payload: GetTokenRequest) -> crate::Result<GetTokenResponse> {
+    Err(crate::Error::Other("Not implemented on desktop".to_string()))  
+  }
+
+  pub fn subscribe_to_topic(&self, _payload: SubscribeToTopicRequest) -> crate::Result<SubscribeToTopicResponse> {
+    Err(crate::Error::Other("Not implemented on desktop".to_string()))
   }
 }

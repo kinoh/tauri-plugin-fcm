@@ -1,9 +1,20 @@
 import { invoke } from '@tauri-apps/api/core'
 
-export async function ping(value: string): Promise<string | null> {
-  return await invoke<{value?: string}>('plugin:fcm|ping', {
+/**
+ * Get the FCM token
+*/
+export async function getFCMToken(): Promise<string> {
+  return await invoke('plugin:fcm|get_token', { payload: {}});
+}
+
+/**
+ * Subscribe to a topic
+ */
+export async function subscribeToTopic(topic: string): Promise<void> {
+  await invoke('plugin:fcm|subscribe_to_topic', {
     payload: {
-      value,
+      topic,
     },
-  }).then((r) => (r.value ? r.value : null));
+  });
+  return
 }

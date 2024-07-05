@@ -295,17 +295,31 @@
       "type": "string",
       "oneOf": [
         {
-          "description": "allow-ping -> Enables the ping command without any pre-configured scope.",
+          "description": "allow-get-token -> Enables the get_token command without any pre-configured scope.",
           "type": "string",
           "enum": [
-            "allow-ping"
+            "allow-get-token"
           ]
         },
         {
-          "description": "deny-ping -> Denies the ping command without any pre-configured scope.",
+          "description": "deny-get-token -> Denies the get_token command without any pre-configured scope.",
           "type": "string",
           "enum": [
-            "deny-ping"
+            "deny-get-token"
+          ]
+        },
+        {
+          "description": "allow-subscribe-to-topic -> Enables the subscribe_to_topic command without any pre-configured scope.",
+          "type": "string",
+          "enum": [
+            "allow-subscribe-to-topic"
+          ]
+        },
+        {
+          "description": "deny-subscribe-to-topic -> Denies the subscribe_to_topic command without any pre-configured scope.",
+          "type": "string",
+          "enum": [
+            "deny-subscribe-to-topic"
           ]
         },
         {
