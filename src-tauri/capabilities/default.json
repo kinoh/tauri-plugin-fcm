@@ -13,8 +13,7 @@
     "menu:default",
     "tray:default",
     "shell:allow-open",
-    "fcm:allow-subscribe-to-topic",
-    "fcm:allow-get-token",
-    "notification:default"
+    "notification:default",
+    "fcm:default"
   ]
 }

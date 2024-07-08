@@ -2,6 +2,8 @@
 
 Default permissions for the plugin
 
+- `allow-register-listener`
+- `allow-get-latest-notification-data`
 - `allow-get-token`
 - `allow-subscribe-to-topic`
 
@@ -13,6 +15,32 @@ Default permissions for the plugin
 <th>Description</th>
 </tr>
 
+
+<tr>
+<td>
+
+`fcm:allow-get-latest-notification-data`
+
+</td>
+<td>
+
+Enables the get_latest_notification_data command without any pre-configured scope.
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+`fcm:deny-get-latest-notification-data`
+
+</td>
+<td>
+
+Denies the get_latest_notification_data command without any pre-configured scope.
+
+</td>
+</tr>
 
 <tr>
 <td>
@@ -36,6 +64,32 @@ Enables the get_token command without any pre-configured scope.
 <td>
 
 Denies the get_token command without any pre-configured scope.
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+`fcm:allow-register-listener`
+
+</td>
+<td>
+
+Enables the register_listener command without any pre-configured scope.
+
+</td>
+</tr>
+
+<tr>
+<td>
+
+`fcm:deny-register-listener`
+
+</td>
+<td>
+
+Denies the register_listener command without any pre-configured scope.
 
 </td>
 </tr>

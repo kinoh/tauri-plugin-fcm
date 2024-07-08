@@ -28,6 +28,13 @@ pub fn init<R: Runtime, C: DeserializeOwned>(
 pub struct Fcm<R: Runtime>(PluginHandle<R>);
 
 impl<R: Runtime> Fcm<R> {
+  pub fn get_latest_notification_data(&self, payload: GetLatestNotificationDataRequest) -> crate::Result<GetLatestNotificationDataResponse> {
+    self
+      .0
+      .run_mobile_plugin("getLatestNotificationData", payload)
+      .map_err(Into::into)
+  }
+
   pub fn get_token(&self, payload: GetTokenRequest) -> crate::Result<GetTokenResponse> {
     self
       .0

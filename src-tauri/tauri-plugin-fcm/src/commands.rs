@@ -1,8 +1,16 @@
-use tauri::{AppHandle, command, Runtime};
+use tauri::{command, AppHandle, Runtime};
 
 use crate::models::*;
-use crate::Result;
 use crate::FcmExt;
+use crate::Result;
+
+#[command]
+pub(crate) async fn get_latest_notification_data<R: Runtime>(
+    app: AppHandle<R>,
+    payload: GetLatestNotificationDataRequest,
+) -> Result<GetLatestNotificationDataResponse> {
+    app.fcm().get_latest_notification_data(payload)
+}
 
 #[command]
 pub(crate) async fn get_token<R: Runtime>(
@@ -11,8 +19,6 @@ pub(crate) async fn get_token<R: Runtime>(
 ) -> Result<GetTokenResponse> {
     app.fcm().get_token(payload)
 }
-
-
 
 #[command]
 pub(crate) async fn subscribe_to_topic<R: Runtime>(

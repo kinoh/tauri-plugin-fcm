@@ -14,6 +14,10 @@ pub fn init<R: Runtime, C: DeserializeOwned>(
 pub struct Fcm<R: Runtime>(AppHandle<R>);
 
 impl<R: Runtime> Fcm<R> {
+  pub fn get_latest_notification_data(&self, _payload: GetLatestNotificationDataRequest) -> crate::Result<GetLatestNotificationDataResponse> {
+    Err(crate::Error::Other("Not implemented on desktop".to_string()))
+  }
+
   pub fn get_token(&self, _payload: GetTokenRequest) -> crate::Result<GetTokenResponse> {
     Err(crate::Error::Other("Not implemented on desktop".to_string()))  
   }

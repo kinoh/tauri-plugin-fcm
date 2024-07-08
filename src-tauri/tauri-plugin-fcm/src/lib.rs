@@ -36,6 +36,7 @@ impl<R: Runtime, T: Manager<R>> crate::FcmExt<R> for T {
 pub fn init<R: Runtime>() -> TauriPlugin<R> {
   Builder::new("fcm")
     .invoke_handler(tauri::generate_handler![
+      commands::get_latest_notification_data,
       commands::get_token,
       commands::subscribe_to_topic
       ])
