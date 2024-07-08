@@ -19,6 +19,9 @@
     }
   },
   "bundle": {
+    "iOS": {
+      "developmentTeam": "6YACMQGVMP"
+    },
     "active": true,
     "targets": "all",
     "icon": [
