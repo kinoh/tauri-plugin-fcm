@@ -44,3 +44,35 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
     implementation(project(":tauri-android"))
 }
+
+val generatedDir = File(rootProject.layout.buildDirectory.get().asFile, "generated/kotlin")
+
+tasks.register("generateConstants") {
+    doLast {
+        val applicationId = System.getenv("FCM_APPLICATION_ID")?.takeIf { it.isNotBlank() }
+        val projectId = System.getenv("FCM_PROJECT_ID")?.takeIf { it.isNotBlank() }
+        val apiKey = System.getenv("FCM_API_KEY")?.takeIf { it.isNotBlank() }
+
+        if (applicationId == null || projectId == null || apiKey == null) {
+            throw GradleException("Missing required environment variables: FCM_APPLICATION_ID, FCM_PROJECT_ID, FCM_API_KEY")
+        }
+
+        generatedDir.mkdirs()
+        File(generatedDir, "Constants.kt").writeText("""
+            package com.plugin.fcm
+            const val FCM_APPLICATION_ID = "$applicationId"
+            const val FCM_PROJECT_ID = "$projectId"
+            const val FCM_API_KEY = "$apiKey"
+        """.trimIndent())
+    }
+}
+
+afterEvaluate {
+    tasks.named("compileDebugKotlin") {
+        dependsOn("generateConstants")
+    }
+}
+
+android.sourceSets {
+    getByName("main").java.srcDirs(generatedDir)
+}

@@ -25,9 +25,9 @@ class FCMPlugin(private val activity: Activity) : Plugin(activity) {
     private var latestData = JSObject()
 
     override fun load(webView: WebView) {
-        val options = FirebaseOptions.Builder().setApiKey("AIzaSyC0XpAt4qHzor8LxWJ7G8sDvcjo1LTK4ac")
-            .setProjectId("fcm-tauri-plugin-demo-app")
-            .setApplicationId("1:1021576416014:android:bd673c5ada87a7c443a55f").build()
+        val options = FirebaseOptions.Builder().setApiKey(FCM_API_KEY)
+            .setProjectId(FCM_PROJECT_ID)
+            .setApplicationId(FCM_APPLICATION_ID).build()
 
         FirebaseApp.initializeApp(activity, options)
 
