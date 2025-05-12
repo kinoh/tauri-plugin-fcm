@@ -71,6 +71,9 @@ afterEvaluate {
     tasks.named("compileDebugKotlin") {
         dependsOn("generateConstants")
     }
+    tasks.named("compileReleaseKotlin") {
+        dependsOn("generateConstants")
+    }
 }
 
 android.sourceSets {
